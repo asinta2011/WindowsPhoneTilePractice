@@ -1,0 +1,75 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="sdkTileSample.ApplicationTileSetPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel 包含应用程序的名称和页标题-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="SDK Tile Sample" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Setup App Tile" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - 在此处放置其他内容-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Name="appTileSetBlk"
+                           TextWrapping="Wrap"
+                           Text="Please Setup what Application Tile looks like!"
+                           FontSize="20"
+                           Margin="12,24"
+                           />
+                <!--正面-->
+                <!--Title
+                    BackgroundImage    You should always have a background image.
+                    Count 
+                    BackTitle
+                    BackBackgroundImage
+                    BackContent-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Title:" FontSize="25" Margin="20" TextAlignment="Right" Width="180"/>
+                    <TextBox Name="inputTitleBox" Height="60" Width="230" HorizontalAlignment="Right" />                               
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Background:" FontSize="25" Margin="20" TextAlignment="Right" Width="180"/>
+                    <TextBox Name="inputBkBox" Height="60" Width="230" HorizontalAlignment="Right" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Count:" FontSize="25" Margin="20" TextAlignment="Right" Width="180"/>
+                    <TextBox Name="inputCountBox" Height="60" Width="230" HorizontalAlignment="Right" InputScope="Number" />
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="BackTitle:" FontSize="25" Margin="20" TextAlignment="Right" Width="180"/>
+                    <TextBox Name="inputBkTitleBox" Height="60" Width="230" HorizontalAlignment="Right" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="BackBkImage:" FontSize="25" Margin="20" TextAlignment="Right" Width="180"/>
+                    <TextBox Name="inputBkBkImageBox" Height="60" Width="230" HorizontalAlignment="Right" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="BackContent:" FontSize="25" Margin="20" TextAlignment="Right" Width="180"/>
+                    <TextBox Name="inputBkContentBox" Height="60" Width="230" HorizontalAlignment="Right" />
+                </StackPanel>
+                <Button Name="setAppTileBtn" Width="auto" Height="80" Content="Setup Application Tile" Click="setAppTileBtn_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
